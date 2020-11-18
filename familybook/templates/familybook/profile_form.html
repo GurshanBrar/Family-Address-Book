@@ -1,0 +1,44 @@
+{% extends "base_generic.html" %}
+
+{% load static %}
+
+{% block navbar %}{% endblock %}
+
+{% block content %}
+    <form class="flex-item-main" id="profile-form-div" action="" method="post" enctype="multipart/form-data">
+        <h1>Hello! Let's make your profile</h1>
+        <p>We just need a little more information to make your experience more interactive. Please fill out the details to your best ability. You can click a location on the map or enter it manually.</p>
+        {% csrf_token %}
+        <fieldset>
+            <legend>PROFILE</legend>
+            <img src="{{ form.instance.profile_pic.url }}" class="rounded-circle account-img" id="profile-pic">
+                    <p>{{ form.profile_pic }}{{ form.profile_pic.errors }}</p>
+            <legend>CONTACT INFORMATION</legend>
+            <table>
+                <tr>
+                    <th><p class="labels">{{ form.first_name.label }}:</p>{{ form.first_name }}<p>{{ form.first_name.errors }}</p></th>
+                    <th><p class="labels">{{ form.last_name.label }}:</p>{{ form.last_name }}<p>{{ form.last_name.errors }}</p></th>
+                </tr>
+                <tr>
+                    <th><p class="labels">{{ form.email.label }}:</p>{{ form.email }}<p>{{ form.email.errors }}</p></th>
+                    <th><p class="labels">{{ form.phone_number.label }}:</p>{{ form.phone_number }}<p>{{ form.phone_number.errors }}</p></th>
+                </tr>
+            </table>
+            <legend>ADDRESS</legend>
+            <table>
+                <tr>
+                    <th><p class="labels">{{ form.street_address.label }}:</p>{{ form.street_address }}<p>{{ form.street_address.help_text }}</p><p>{{ form.street_address.errors }}</p></th>
+                    <th><p class="labels">{{ form.zip_code.label }}:</p>{{ form.zip_code }}<p>{{ form.zip_code.errors }}</p></th>
+                </tr>            
+                <tr>
+                    <th><p class="labels">{{ form.city.label }}:</p>{{ form.city }}<p>{{ form.city.errors }}</p></th>
+                    <th><p class="labels">{{ form.state.label }}:</p>{{ form.state }}<p>{{ form.state.errors }}</p></th>
+                    <th><p class="labels">{{ form.country.label }}:</p>{{ form.country }}<p>{{ form.country.errors }}</p></th>
+                </tr>
+            </table>
+<!--             <button type="submit" class="btn btn-info">Submit</button>
+ -->        <button type="submit" class="btn btn-primary">Submit</button>
+        </fieldset>
+    </form>
+    <div id="map" class="flex-item-main">ssssssssssssssssssssssssss</div>
+{% endblock %}

@@ -1,0 +1,21 @@
+{% extends 'base_generic.html' %}
+
+{% load static %}
+{% load for_loop %}
+
+{% block content %}
+    <div id="entry_list_div" class='flex-item'>
+        {% for entry in entry_list %}
+                <div id="{{ forloop.counter }}" class="entry-list-div">
+                    <img id="entry-pic-detail" class="rounded-circle account-img" src="{{ entry.profile_pic.url }}">
+                    <p><a href="{% url 'entry-detail' id=entry.id %}">{{ entry.get_name }}</a></p>
+                    <hr>
+                    <p>{{ entry.get_address }}</p>
+                </div>
+        {% endfor %}
+    </div>
+    <div id="loading-container" class="flex-item">
+        <img id="loading" src="{% static 'images/loading.gif' %}">
+        <div id="entry-map"></div>
+    </div>
+{% endblock %}

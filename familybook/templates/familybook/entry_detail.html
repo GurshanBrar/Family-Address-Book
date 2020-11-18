@@ -1,0 +1,20 @@
+{% extends 'base_generic.html' %}
+
+{% load static %}
+
+{% block content %}
+    <div id="entry-detail-div" class="flex-item-main">
+        <div id="profile-pic-div">
+            <img id="profile-pic-detail" class="rounded-circle account-img" src="{{ entry.profile_pic.url }}">
+            <h3>{{ entry.first_name }} {{ entry.last_name }}</h3>
+            <p>{{ entry.email }}</p>
+        </div>
+        <div id="profile-div">
+            <h3>Address</h3>
+            <p>{{ entry.get_address }}</p>
+            <h3>Phone Number</h3>
+            <p>{{ entry.phone_number }}</p>
+        </div>
+        <a class="btn btn-primary" href="{% url 'entry-update' entry.id %}" role="button">Edit Contact</a>
+    </div>
+{% endblock %}

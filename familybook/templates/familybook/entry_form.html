@@ -1,0 +1,48 @@
+{% extends 'base_generic.html' %}
+
+{% load static %}
+
+{% block content %}
+    <form method="post" action="" class="flex-item-main" enctype="multipart/form-data">
+        <h1>Create A Contact</h1>
+        {% csrf_token %}
+        <fieldset>
+            <legend>PROFILE</legend>
+            <img src="{{ form.instance.profile_pic.url }}" class="rounded-circle account-img" id="profile-pic">
+                    <p>{{ form.profile_pic }}{{ form.profile_pic.errors }}</p>
+            <legend>CONTACT INFORMATION</legend>
+            <table>
+                <tr>
+                    <th><p class="labels">{{ form.first_name.label }}:</p>{{ form.first_name }}<p>{{ form.first_name.errors }}</p></th>
+                    <th><p class="labels">{{ form.last_name.label }}:</p>{{ form.last_name }}<p>{{ form.last_name.errors }}</p></th>
+                </tr>
+                <tr>
+                    <th><p class="labels">{{ form.email.label }}:</p>{{ form.email }}<p>{{ form.email.errors }}</p></th>
+                    <th><p class="labels">{{ form.phone_number.label }}:</p>{{ form.phone_number }}<p>{{ form.phone_number.errors }}</p></th>
+                </tr>
+            </table>
+            <legend>ADDRESS</legend>
+            <table>
+                <tr>
+                    <th><p class="labels">{{ form.street_address.label }}:</p>{{ form.street_address }}<p>{{ form.street_address.help_text }}</p><p>{{ form.street_address.errors }}</p></th>
+                    <th><p class="labels">{{ form.zip_code.label }}:</p>{{ form.zip_code }}<p>{{ form.zip_code.errors }}</p></th>
+                </tr>            
+                <tr>
+                    <th><p class="labels">{{ form.city.label }}:</p>{{ form.city }}<p>{{ form.city.errors }}</p></th>
+                    <th><p class="labels">{{ form.state.label }}:</p>{{ form.state }}<p>{{ form.state.errors }}</p></th>
+                    <th><p class="labels">{{ form.country.label }}:</p>{{ form.country }}<p>{{ form.country.errors }}</p></th>
+                </tr>
+            </table>
+<!--             <button type="submit" class="btn btn-info">Submit</button>
+ -->        <button type="submit" class="btn btn-primary">Submit</button>
+        </fieldset>
+    </form>
+    <div id="map" class="flex-item-main">ssssssssssssssssssssssssss</div>
+{% endblock %}
+
+    <!-- street_address = models.CharField(
+    max_length=100, help_text='Street address following house number')    
+    city = models.CharField(max_length=100)
+    state = models.CharField(max_length=100)
+    zip_code = models.CharField(max_length=5, verbose_name="Zip Code")
+    country = models.CharField(max_length=2, choices=COUNTRIES) -->

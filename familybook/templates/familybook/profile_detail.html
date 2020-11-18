@@ -1,0 +1,18 @@
+{% extends "base_generic.html" %}
+{% load static %}
+
+{% block content %}
+    <div id="profile-detail-div" class="flex-item-main">
+        <div id="profile-pic-div">
+            <img id="profile-pic-detail" class="rounded-circle account-img" src="{{ profile.profile_pic.url }}">
+            <h3>{{ profile.first_name }} {{ profile.last_name }}</h3>
+            <p>{{ profile.email }}</p>
+        </div>
+        <div id="profile-div">
+            <h3>Address</h3>
+            <p>{{ profile.get_address }}</p>
+            <h3>Phone Number</h3>
+            <p>{{ profile.phone_number }}</p>
+        </div>
+    </div>
+{% endblock %}
