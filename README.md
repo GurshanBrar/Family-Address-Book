@@ -6,7 +6,7 @@ An address book with an interactive map. It allows you to create address book en
 - Full login and registration functionality
 
 ## Security
-The Django framework provides the following security features. More information can be found on Django's official [Security Overview](https://docs.djangoproject.com/en/3.1/topics/security/)
+The Django framework provides the following security features. More information can be found on Django's official [Security Overview].(https://docs.djangoproject.com/en/3.1/topics/security/)
 
 - XSS protection (by implementing proper character escaping)
 - CSRF protection using secret tokens
